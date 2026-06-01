@@ -14,13 +14,6 @@ import org.springframework.context.annotation.Configuration;
  * <ul>
  *   <li><b>simpleChatClient</b> — plain LLM call with no additional context or tools</li>
  *   <li><b>naiveChatClient</b> — used for Naive RAG; augmented at call time via {@link org.springframework.ai.chat.client.advisor.vectorstore.QuestionAnswerAdvisor}</li>
- *   <li><b>agenticChatClient</b> — used for Agentic RAG; configured with a system prompt and tools.
- *       Two conditional variants exist depending on {@code app.tools.mode}:
- *       <ul>
- *         <li>{@code local} (default) — tools are local Spring beans</li>
- *         <li>{@code mcp} — tools are provided by an external MCP server</li>
- *       </ul>
- *   </li>
  * </ul>
  */
 @Configuration
@@ -32,6 +25,18 @@ public class ChatClientConfiguration {
     @Qualifier("simpleChatClient")
     public ChatClient simpleChatClient(ChatClient.Builder builder) {
         log.info("[ChatClientConfiguration] Creating simpleChatClient bean");
+        return builder.build();
+    }
+
+    /**
+     * {@link ChatClient} for Naive RAG (Step 4).
+     * No tools or system prompt configured here — the {@link org.springframework.ai.chat.client.advisor.vectorstore.QuestionAnswerAdvisor}
+     * is attached dynamically at call time in {@link io.jprime.agenticrag.retriever.domain.llm.client.sync.NaiveRAGClient}.
+     */
+    @Bean
+    @Qualifier("naiveChatClient")
+    public ChatClient naiveChatClient(ChatClient.Builder builder) {
+        log.info("[ChatClientConfiguration] Creating naiveChatClient bean");
         return builder.build();
     }
 }

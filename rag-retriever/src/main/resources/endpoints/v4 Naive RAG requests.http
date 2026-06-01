@@ -1,0 +1,127 @@
+
+### Ask Naive RAG
+
+### *** Questions with answers that exist in the KnowledgeBase ***
+
+### What is Movie Machine Pro?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="What is Movie Machine Pro?"
+
+### What do you know about Movie Machine Pro?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="What do you know about Movie Machine Pro?"
+
+### What do you know about AV Master?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="What do you know about AV Master?"
+
+### What is DPS Velocity?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="What is DPS Velocity?"
+
+### What is Media 100?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="What is Media 100?"
+
+### On which hardware DPS Velocity runs?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="On which hardware DPS Velocity runs?"
+
+### What effects DPS Velocity provides?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="What effects DPS Velocity provides?"
+
+### Suggest me a good video editing card for digital processing?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Suggest me a good video editing card for digital processing?"
+
+### Can the card capture video or audio?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Can the card capture video or audio?"
+
+### Has the card a TV tuner?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Has the card a TV tuner?"
+
+### Where is printed the manual of Movie Machine Pro?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Where is printed the manual of Movie Machine Pro?"
+
+### Is 386 processor enough for a computer for working with Movie Machine Pro?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Is 386 processor enough for a computer for working with Movie Machine Pro?"
+
+### Is 486 processor enough for a computer for working with Movie Machine Pro?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Is 486 processor enough for a computer for working with Movie Machine Pro?"
+
+### Is Pentium processor enough for a computer for working with Movie Machine Pro?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Is Pentium processor enough for a computer for working with Movie Machine Pro?"
+
+### With which software AV Master can work?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="With which software AV Master can work?"
+
+### With which software AV Master and Movie Machine Pro can work?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="With which software AV Master and Movie Machine Pro can work?"
+
+### On a computer with which Operating system AV Master can be used?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="On a computer with which Operating system AV Master can be used?"
+
+### Is AV Master a good solution for digital video editing?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Is AV Master a good solution for digital video editing?"
+
+### In which fields AV Master is better - stimulating the usage of Artificial Intelligence or making video editing?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="In which fields AV Master is better - stimulating the usage of Artificial Intelligence or making video editing?"
+
+### Can AV Master stimulate the usage of Artificial Intelligence?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Can AV Master stimulate the usage of Artificial Intelligence?"
+
+### Is AV Master a good solution for digital video editing now in 2026?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Is AV Master a good solution for digital video editing now in 2026?"
+
+### Which video resolutions supports Movie Machine Pro?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Which video resolutions supports Movie Machine Pro?"
+
+### Which video resolutions supports AV Master?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Which video resolutions supports AV Master?"
+
+### Give me a list of video editing cards that can be used for digital video editing
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Give me a list of video editing cards that can be used for digital video editing"
+
+### Give me a list of video editing and processing systems that allows users to capture, edit, and output video content.
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Give me a list of video editing and processing systems that allows users to capture, edit, and output video content"
+
+### Give me information about Movie Machine Pro, DPS Velocity, AV Master 2000, Media 100, MiroMotion DC30
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Give me information about Movie Machine Pro, DPS Velocity, AV Master 2000, Media 100, MiroMotion DC30"
+
+### Give me information about Media 100 and AV Master 2000
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Give me information about Media 100 and AV Master 2000"
+
+### Give me a list of video editing cards that can be used for digital video editing and a description about every card
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Give me a list of video editing cards that can be used for digital video editing and a description about every card"
+
+### Tell me about the video editing card Media 100
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Tell me about the video editing card Media 100"
+
+### Which video processing cards from the catalog cost under 500 dollars?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Which video processing cards from the catalog cost under 500 dollars?"
+
+### Give me detailed information about every video processing cards from the catalog which cost under 500 dollars?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Give me detailed information about every video processing cards from the catalog which cost under 500 dollars?"
+
+### Give me detailed information about the most expensive video processing cards from the catalog which cost under 500 dollars
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Give me detailed information about the most expensive video processing cards from the catalog which cost under 500 dollars"
+
+
+
+
+### *** Questions with answers that do NOT exist in the KnowledgeBase ***
+
+### Can the card drive a bicycle?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Can the card drive a bicycle?"
+
+### What is the capital of Bulgaria?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="What is the capital of Bulgaria?"
+
+### How to drive a car?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="How to drive a car?"
+
+### Where is the pink elephant?
+GET http://localhost:8082/rag-retriever/naive-rag/ask?prompt="Where is the pink elephant?"
+
+
+
+### Return predefined object
+
+### Return video editing card object
+GET http://localhost:8082/rag-retriever/naive-rag/video-editing-cards
+
+### Return video editing card object from multi-document RAG
+GET http://localhost:8082/rag-retriever/naive-rag/video-editing-cards-multi-document

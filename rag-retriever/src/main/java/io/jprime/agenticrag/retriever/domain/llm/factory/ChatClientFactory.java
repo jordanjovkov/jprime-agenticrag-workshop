@@ -2,6 +2,7 @@ package io.jprime.agenticrag.retriever.domain.llm.factory;
 
 import io.jprime.agenticrag.retriever.domain.llm.client.LLMChatMode;
 import io.jprime.agenticrag.retriever.domain.llm.client.sync.ChatSyncClient;
+import io.jprime.agenticrag.retriever.domain.llm.client.sync.NaiveRAGClient;
 import io.jprime.agenticrag.retriever.domain.llm.client.sync.SimpleLLMClient;
 import org.springframework.stereotype.Component;
 
@@ -23,10 +24,12 @@ public class ChatClientFactory {
 
     private final Map<LLMChatMode, ChatSyncClient> chatSyncClientTypes;
 
-    public ChatClientFactory(SimpleLLMClient simpleLLM) {
+    public ChatClientFactory(SimpleLLMClient simpleLLM,
+                             NaiveRAGClient naiveRAG) {
 
         this.chatSyncClientTypes = Map.of(
-                LLMChatMode.SIMPLE_LLM, simpleLLM
+                LLMChatMode.SIMPLE_LLM, simpleLLM,
+                LLMChatMode.NAIVE_RAG, naiveRAG
         );
     }
 

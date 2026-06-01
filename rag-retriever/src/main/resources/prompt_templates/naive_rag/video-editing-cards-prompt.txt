@@ -1,0 +1,19 @@
+Give me a list of video editing cards by different manufacturers that can be used for digital video editing.
+The returned data must be their name, manufacturer and description (up to 10 words). If there is no data about a field - return NULL for this field.
+Return the result as a JSON object with a field "cards" that contains an array of objects.
+
+    Example format:
+    {
+        "cards": [
+            {
+                "name": "Card 1",
+                "manufacturer": "Manufacturer 1",
+                "description": "Description 1"
+            },
+            {
+                "name": "Card 2",
+                "manufacturer": "Manufacturer 2",
+                "description": "Description 2"
+            }
+        ]
+    }
