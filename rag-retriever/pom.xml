@@ -38,10 +38,22 @@
     <!-- ================================================================= -->
     <dependencies>
 
+        <!-- Internal Modules -->
+        <dependency>
+            <groupId>io.jprime.agenticrag</groupId>
+            <artifactId>video-production-store-client</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
         <!-- Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webmvc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-restclient</artifactId>
         </dependency>
 
 
