@@ -1,0 +1,19 @@
+### Ask LLM
+
+### What is Movie Machine Pro?
+GET http://localhost:8082/rag-retriever/llm/ask?prompt="What is Movie Machine Pro?"
+
+### What do you know about Movie Machine Pro?
+GET http://localhost:8082/rag-retriever/llm/ask?prompt="What do you know about Movie Machine Pro?"
+
+### Is AV Master a good solution for digital video editing?
+GET http://localhost:8082/rag-retriever/llm/ask?prompt="Is AV Master a good solution for digital video editing?"
+
+### On which OS and with what hardware configuration AV Master works?
+GET http://localhost:8082/rag-retriever/llm/ask?prompt="On which OS and with what hardware configuration AV Master works?"
+
+### What effects DPS Velocity provides?
+GET http://localhost:8082/rag-retriever/llm/ask?prompt="What effects DPS Velocity provides?
+
+### Is 486 processor enough for a computer for working with Movie Machine Pro?
+GET http://localhost:8082/rag-retriever/llm/ask?prompt="Is 486 processor enough for a computer for working with Movie Machine Pro?"
