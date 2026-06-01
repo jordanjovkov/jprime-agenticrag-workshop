@@ -4,6 +4,7 @@ import io.jprime.agenticrag.retriever.persistence.knowledgebase.KnowledgeBaseRep
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.document.Document;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +16,22 @@ public class KnowledgeBaseService {
 
     private final KnowledgeBaseRepository knowledgeBaseRepository;
 
+    @Value("${app.agenticrag.searchrequest.topK}")
+    private Integer topK;
+
+    @Value("${app.agenticrag.searchrequest.similarityThreshold}")
+    private Double similarityThreshold;
+
     public KnowledgeBaseService(KnowledgeBaseRepository knowledgeBaseRepository) {
         this.knowledgeBaseRepository = knowledgeBaseRepository;
+    }
+
+    /**
+     * Searches the Knowledge Base using the default topK and similarityThreshold
+     * configured via app.agenticrag.searchrequest.* properties.
+     */
+    public List<String> search(String query) {
+        return search(query, topK, similarityThreshold);
     }
 
     /**

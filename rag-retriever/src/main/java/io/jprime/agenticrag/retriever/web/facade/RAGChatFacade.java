@@ -18,4 +18,9 @@ public class RAGChatFacade {
         ChatSyncClient chatSyncClient = chatClientFactory.createSyncClient(LLMChatMode.NAIVE_RAG);
         return chatSyncClient.call(prompt);
     }
+
+    public String askAgenticRAG(String prompt) {
+        ChatSyncClient chatSyncClient = chatClientFactory.createSyncClient(LLMChatMode.AGENTIC_RAG);
+        return chatSyncClient.call(prompt);
+    }
 }

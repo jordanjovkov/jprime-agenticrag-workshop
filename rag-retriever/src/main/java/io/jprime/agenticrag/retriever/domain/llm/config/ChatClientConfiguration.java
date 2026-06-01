@@ -1,5 +1,10 @@
 package io.jprime.agenticrag.retriever.domain.llm.config;
 
+import io.jprime.agenticrag.retriever.domain.llm.service.PromptService;
+import io.jprime.agenticrag.retriever.domain.llm.tool.CustomerQueryTools;
+import io.jprime.agenticrag.retriever.domain.llm.tool.KnowledgeBaseQueryTools;
+import io.jprime.agenticrag.retriever.domain.llm.tool.OrderQueryTools;
+import io.jprime.agenticrag.retriever.domain.llm.tool.VideoEditingCardQueryTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
@@ -14,12 +19,19 @@ import org.springframework.context.annotation.Configuration;
  * <ul>
  *   <li><b>simpleChatClient</b> — plain LLM call with no additional context or tools</li>
  *   <li><b>naiveChatClient</b> — used for Naive RAG; augmented at call time via {@link org.springframework.ai.chat.client.advisor.vectorstore.QuestionAnswerAdvisor}</li>
+ *   <li><b>agenticChatClient</b> — used for Agentic RAG; configured with a system prompt and tools.
  * </ul>
  */
 @Configuration
 public class ChatClientConfiguration {
 
     private static final Logger log = LoggerFactory.getLogger(ChatClientConfiguration.class);
+
+    private final PromptService promptService;
+
+    public ChatClientConfiguration(PromptService promptService) {
+        this.promptService = promptService;
+    }
 
     @Bean
     @Qualifier("simpleChatClient")
@@ -38,5 +50,29 @@ public class ChatClientConfiguration {
     public ChatClient naiveChatClient(ChatClient.Builder builder) {
         log.info("[ChatClientConfiguration] Creating naiveChatClient bean");
         return builder.build();
+    }
+
+    /**
+     * {@link ChatClient} for Agentic RAG using local tool beans (Steps 5 and 6).
+     * <p>
+     * All four tool classes are registered directly as Spring beans —
+     * the agent autonomously decides which tools to invoke and how many times.
+     */
+    @Bean
+    @Qualifier("agenticChatClient")
+    public ChatClient agenticChatClientLocal(ChatClient.Builder builder,
+                                             VideoEditingCardQueryTools videoEditingCardQueryTools,
+                                             CustomerQueryTools customerQueryTools,
+                                             OrderQueryTools orderQueryTools,
+                                             KnowledgeBaseQueryTools knowledgeBaseQueryTools) {
+
+        log.info("[ChatClientConfiguration] Creating agenticChatClient bean");
+
+        String systemPrompt = promptService.getAgenticRAGSystemPrompt();
+
+        return builder
+                .defaultSystem(systemPrompt)
+                .defaultTools(videoEditingCardQueryTools, customerQueryTools, orderQueryTools, knowledgeBaseQueryTools)
+                .build();
     }
 }

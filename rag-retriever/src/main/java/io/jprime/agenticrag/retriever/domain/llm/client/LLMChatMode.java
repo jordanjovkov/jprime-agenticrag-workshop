@@ -11,5 +11,6 @@ package io.jprime.agenticrag.retriever.domain.llm.client;
  */
 public enum LLMChatMode {
     SIMPLE_LLM,
-    NAIVE_RAG
+    NAIVE_RAG,
+    AGENTIC_RAG
 }

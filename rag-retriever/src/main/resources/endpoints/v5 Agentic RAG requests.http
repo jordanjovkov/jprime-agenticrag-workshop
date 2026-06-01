@@ -1,0 +1,92 @@
+### Ask Agentic RAG
+
+### *** Knowledge base Tool only - the data is in the KnowledgeBase ***
+
+### 1. What is Movie Machine Pro?
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="What is Movie Machine Pro?"
+
+### 2. Is 386 processor enough for a computer for working with Movie Machine Pro?
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="Is 386 processor enough for a computer for working with Movie Machine Pro?"
+
+### 3. Is 486 processor enough for a computer for working with Movie Machine Pro?
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="Is 486 processor enough for a computer for working with Movie Machine Pro?"
+
+### 4. What are the technical specifications of the Media 100?
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="What are the technical specifications of the Media 100?"
+
+
+
+### *** No data — out of scope ***
+
+### 5. Where is the pink elephant?
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="Where is the pink elephant?"
+
+### 6. What do you know about AV Master?
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="What do you know about AV Master?"
+
+### 7. Is BMW E39 faster than BMW E30?
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="is BMW E39 faster than BMW E30?"
+
+### 8. What do you know about Lenovo Yoga?
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="What do you know about Lenovo Yoga?"
+
+
+
+### *** Must call single tool to take data from relational database ***
+
+### 9. Show me video editing cards priced between 300 and 500 euros
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="Show me video editing cards priced between 300 and 500 euros"
+
+### 10. Which cards do we have more than 20 units in stock?
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="Which cards do we have more than 20 units in stock?"
+
+### 11. Find a customer named Georgi
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="Find a customer named Georgi"
+
+### 12. Show me the details for customer with ID 2
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="Show me the details for customer with ID 2"
+
+
+
+### *** Must call multiple tools to take data from relational database ***
+
+### 13. Which customers have purchased the DPS Velocity?
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="Which customers have purchased the DPS Velocity?"
+
+### 14. What has customer Ivan Ivanov purchased?
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="What has customer Ivan Ivanov purchased?"
+
+### 15. Show me the details for customer with ID 2 and include purchase history
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="Show me the details for customer with ID 2 and include purchase history"
+
+### 16. Which cards are priced between 300 and 500 euros AND have more than 10 units in stock?
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="Which cards are priced between 300 and 500 euros AND have more than 10 units in stock?"
+
+
+
+### *** Must call multiple tools for taking relational database and a tool for vector search (full Agentic RAG) ***
+
+### 17. Which customers have purchased the DPS Velocity and what are the technical specifications of this card?
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="Which customers have purchased the DPS Velocity and what are the technical specifications of this card?"
+
+### 18. Show me the details for customer with ID 2, include his purchase history and give a detailed information about purchased products
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="Show me the details for customer with ID 2, include his purchase history and give a detailed information about purchased products"
+
+### 19. Tell me about the cards purchased by Georgi Georgiev, including technical specifications
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="Tell me about the cards purchased by Georgi Georgiev, including technical specifications"
+
+### 20. Give me detailed information about video editing cards priced between 300 and 500 euros
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="Give me detailed information about video editing cards priced between 300 and 500 euros"
+
+### 21. What are the specifications of the DPS Velocity and how many units are in stock?
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="What are the specifications of the DPS Velocity and how many units are in stock?"
+
+
+
+### *** Known limitations — multiple search to KnowledgeBase calls exceed Groq free tier token limit ***
+
+### 22. Which cards have more than 10 units in stock and what are their specifications?
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="Which cards have more than 10 units in stock and what are their specifications?"
+
+### 23. Which cards are priced under 500 euros, have more than 5 units in stock, and what are their technical specifications?
+GET http://localhost:8082/rag-retriever/agentic-rag/ask?prompt="Which cards are priced under 500 euros, have more than 5 units in stock, and what are their technical specifications?"

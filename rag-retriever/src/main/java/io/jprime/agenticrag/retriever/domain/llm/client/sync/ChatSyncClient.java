@@ -9,6 +9,7 @@ package io.jprime.agenticrag.retriever.domain.llm.client.sync;
  * <ul>
  *   <li>{@link SimpleLLMClient} — direct LLM call with no context or tools</li>
  *   <li>{@link NaiveRAGClient} — LLM call augmented with vector store context via advisor</li>
+ *   <li>{@link AgenticRAGClient} — LLM call with tools, enabling autonomous multi-step reasoning</li>
  * </ul>
  * <p>
  * If streaming support is introduced in the future, a separate {@code ChatStreamClient}

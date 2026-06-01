@@ -32,6 +32,9 @@ public class PromptService {
     @Value("${app.naiverag.prompttemplate}")
     private Resource naiveRAGPromptTemplateResource;
 
+    @Value("${app.agenticrag.systemprompttemplate}")
+    private Resource agenticRAGSystemPromptTemplateResource;
+
     @Value("${app.naiverag.videoeditingcards.prompt}")
     private Resource videoEditingCardsPromptResource;
 
@@ -54,6 +57,27 @@ public class PromptService {
                 1. If the answer is not in the context, just say that you don't know.
                 2. Avoid statements like "Based on the context..." or "The provided information...".
                 """;
+
+    private static final String AGENTIC_RAG_SYSTEM_PROMPT_BACKUP_VARIANT = """
+            You are an expert assistant on professional video processing hardware from the 1990s and early 2000s.
+            
+             You have access to two sources of information:
+             1. A product catalog tool with prices and availability
+             2. A knowledge base with technical specifications
+    
+             INSTRUCTIONS:
+             1. Use the catalog tool when the user asks about prices, budget or availability
+             2. Use the knowledge base for technical specifications and details
+             3. Combine both sources when needed to give a complete answer
+             4. Answer ONLY in the SAME LANGUAGE as the asked question language
+             5. Answer clearly, accurately, and in a structured manner
+             6. If there is contradictory information in the context, point it out
+    
+             IMPORTANT:
+             - Use the catalog tool and knowledge base together when the question requires both
+             - Be honest about the limitations of the information
+             - If the context is partial or unclear, mention this
+        """;
 
     private static final String VIDEO_EDITING_CARDS_PROMPT_BACKUP_VARIANT = """
             Give me a list of video editing cards by different manufacturers that can be used for digital video editing.
@@ -105,6 +129,7 @@ public class PromptService {
             """;
 
     private PromptTemplate cachedNaiveRAGPromptTemplate;
+    private String cachedAgenticRAGSystemPrompt;
     private String cachedVideoEditingCardsPrompt;
     private String cachedVideoEditingCardsMultiDocumentPrompt;
 
@@ -118,6 +143,9 @@ public class PromptService {
 
         cachedNaiveRAGPromptTemplate =
                 buildPromptTemplate(naiveRAGPromptTemplateResource, NAIVE_RAG_PROMPT_TEMPLATE_BACKUP_VARIANT);
+
+        cachedAgenticRAGSystemPrompt =
+                loadResourceText(agenticRAGSystemPromptTemplateResource, AGENTIC_RAG_SYSTEM_PROMPT_BACKUP_VARIANT);
 
         cachedVideoEditingCardsPrompt =
                 loadResourceText(videoEditingCardsPromptResource, VIDEO_EDITING_CARDS_PROMPT_BACKUP_VARIANT);
@@ -165,6 +193,10 @@ public class PromptService {
 
     public PromptTemplate getNaiveRAGPromptTemplate() {
         return cachedNaiveRAGPromptTemplate;
+    }
+
+    public String getAgenticRAGSystemPrompt() {
+        return cachedAgenticRAGSystemPrompt;
     }
 
     public String getVideoEditingCardsPrompt() {
