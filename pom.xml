@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ================================================================= -->
+    <!-- Spring Boot Parent                                                -->
+    <!-- ================================================================= -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>4.0.6</version>
+        <relativePath/>
+    </parent>
+
+
+    <!-- ================================================================= -->
+    <!-- Project Identity                                                  -->
+    <!-- ================================================================= -->
+    <groupId>io.jprime.agenticrag</groupId>
+    <artifactId>agenticrag-workshop</artifactId>
+    <version>${revision}</version>
+    <name>agenticrag-workshop</name>
+    <description>Parent POM for Spring AI Agentic RAG Workshop projects</description>
+    <packaging>pom</packaging>
+
+
+    <!-- ================================================================= -->
+    <!-- Modules                                                           -->
+    <!-- ================================================================= -->
+    <modules>
+        <module>rag-ingestor</module>
+        <module>rag-retriever</module>
+        <module>video-production-store</module>
+        <module>video-production-store-client</module>
+        <module>video-production-store-mcp-server</module>
+    </modules>
+
+
+    <!-- ================================================================= -->
+    <!-- Properties                                                        -->
+    <!-- revision  — single place to change the project version            -->
+    <!-- otel      — shared between rag-ingestor and rag-retriever,        -->
+    <!--             must be consistent as they share the same             -->
+    <!--             observability infrastructure (pgvector + Grafana)     -->
+    <!-- ================================================================= -->
+    <properties>
+        <revision>1.0.0</revision>
+        <java.version>25</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- OpenTelemetry — shared between rag-ingestor and rag-retriever -->
+        <opentelemetry.version>1.61.0</opentelemetry.version>
+        <opentelemetry-logback.version>2.26.1-alpha</opentelemetry-logback.version>
+    </properties>
+
+
+    <!-- ================================================================= -->
+    <!-- Build                                                             -->
+    <!-- ================================================================= -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

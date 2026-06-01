@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ================================================================= -->
+    <!-- Parent                                                            -->
+    <!-- ================================================================= -->
+    <parent>
+        <groupId>io.jprime.agenticrag</groupId>
+        <artifactId>agenticrag-workshop</artifactId>
+        <version>${revision}</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+
+    <!-- ================================================================= -->
+    <!-- Project Identity                                                  -->
+    <!-- ================================================================= -->
+    <artifactId>video-production-store-mcp-server</artifactId>
+    <name>video-production-store-mcp-server</name>
+    <description>MCP Server exposing video-production-store REST API as Spring AI MCP Tools</description>
+    <packaging>jar</packaging>
+
+
+    <!-- ================================================================= -->
+    <!-- Properties                                                        -->
+    <!-- ================================================================= -->
+    <properties>
+        <!-- TODO: Upgrade spring-ai.version to GA release when available -->
+        <spring-ai.version>2.0.0-M5</spring-ai.version>
+    </properties>
+
+
+    <!-- ================================================================= -->
+    <!-- Dependencies                                                      -->
+    <!-- ================================================================= -->
+    <dependencies>
+
+        <!-- Internal Modules -->
+        <dependency>
+            <groupId>io.jprime.agenticrag</groupId>
+            <artifactId>video-production-store-client</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <!-- Web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-restclient</artifactId>
+        </dependency>
+
+        <!-- MCP Server -->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-starter-mcp-server-webmvc</artifactId>
+        </dependency>
+
+        <!-- Actuator -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+    </dependencies>
+
+
+    <!-- ================================================================= -->
+    <!-- Dependency Management                                             -->
+    <!-- ================================================================= -->
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- Spring AI BOM — manages all Spring AI dependency versions -->
+            <dependency>
+                <groupId>org.springframework.ai</groupId>
+                <artifactId>spring-ai-bom</artifactId>
+                <version>${spring-ai.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
+    <!-- ================================================================= -->
+    <!-- Build                                                             -->
+    <!-- ================================================================= -->
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
