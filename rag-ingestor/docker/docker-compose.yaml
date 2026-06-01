@@ -1,6 +1,29 @@
 name: agenticrag-${PROJECT_REVISION}
 
 services:
+
+  pgvector:
+    image: 'pgvector/pgvector:0.8.2-pg18-trixie'
+    container_name: agenticrag-${PROJECT_REVISION}-pgvector
+    networks:
+      - rag-network
+    environment:
+      - 'POSTGRES_DB=rag_db'
+      - 'POSTGRES_USER=rag_user'
+      - 'POSTGRES_PASSWORD=secret'
+    labels:
+      - "org.springframework.boot.service-connection=postgres"
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgvector-data:/var/lib/postgresql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U rag_user -d rag_db" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
   grafana:
     image: 'grafana/otel-lgtm:0.25.0'
     container_name: agenticrag-${PROJECT_REVISION}-grafana
@@ -12,3 +35,7 @@ services:
 networks:
   rag-network:
     driver: bridge
+
+volumes:
+  pgvector-data:
+#  ollama-data:

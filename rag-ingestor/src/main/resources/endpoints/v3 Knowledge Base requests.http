@@ -1,0 +1,45 @@
+
+### --------------------------------------------------
+
+
+### ReLoad RAG KnowledgeBase
+POST http://localhost:8081/rag-ingestor/knowledge-base/reload
+
+
+### --------------------------------------------------
+
+
+### Search in KnowledgeBase
+
+### Asking questions about information existing in our RAG KnowledgeBase
+
+### What is Movie Machine Pro?
+GET http://localhost:8081/rag-ingestor/knowledge-base/search?query="What is Movie Machine Pro?"
+
+### What is DPS Velocity?
+GET http://localhost:8081/rag-ingestor/knowledge-base/search?query="What is DPS Velocity?"
+
+### Tell me about the video compression technology?
+GET http://localhost:8081/rag-ingestor/knowledge-base/search?query="Tell me about the video compression technology?"
+
+### Which video resolutions supports Movie Machine Pro?
+GET http://localhost:8081/rag-ingestor/knowledge-base/search?query="Which video resolutions supports Movie Machine Pro?"
+
+### Does Movie Machine Pro support video compression? What are the supported file formats?
+GET http://localhost:8081/rag-ingestor/knowledge-base/search?query="Does Movie Machine Pro support video compression? What are the supported file formats?"
+
+### Where is printed the manual of Movie Machine Pro?
+GET http://localhost:8081/rag-ingestor/knowledge-base/search?query="Where is printed the manual of Movie Machine Pro?"
+
+### Video editing card name manufacturer
+GET http://localhost:8081/rag-ingestor/knowledge-base/search?query="Video editing card hardware specifications"
+
+### Movie Machine Pro video editing card
+GET http://localhost:8081/rag-ingestor/knowledge-base/search?query="Movie Machine Pro hardware specifications"
+
+
+
+### Asking questions about information NON existing in our RAG KnowledgeBase
+
+### How to drive a car?
+GET http://localhost:8081/rag-ingestor/knowledge-base/search?query="How to drive a car?"
