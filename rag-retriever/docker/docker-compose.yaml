@@ -38,4 +38,3 @@ networks:
 
 volumes:
   pgvector-data:
-#  ollama-data:

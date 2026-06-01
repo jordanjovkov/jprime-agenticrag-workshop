@@ -78,4 +78,20 @@ public class RAGAdvisorFactory {
         return cachedNaiveAdvisor;
     }
 
+    /**
+     * Creates a new {@link QuestionAnswerAdvisor} suitable for agentic use.
+     * <p>
+     * Unlike the naive advisor, no custom prompt template is applied here —
+     * in agentic mode the LLM controls the reasoning loop and the Knowledge Base
+     * is accessed via a {@code @Tool} rather than through this advisor.
+     * Retained for reference and potential future use.
+     */
+    @SuppressWarnings("unused")
+    public QuestionAnswerAdvisor createAgenticAdvisor() {
+        SearchRequest searchRequest = buildSearchRequest();
+
+        return QuestionAnswerAdvisor.builder(vectorStore)
+                .searchRequest(searchRequest)
+                .build();
+    }
 }

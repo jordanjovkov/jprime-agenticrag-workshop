@@ -10,7 +10,7 @@ import reactor.core.publisher.Hooks;
 public class RagRetrieverApplication {
 
 	public static void main(String[] args) {
-        Hooks.enableAutomaticContextPropagation();
+		Hooks.enableAutomaticContextPropagation();
 		ContextRegistry.getInstance().registerThreadLocalAccessor(new OtelContextAccessor());
 
 		SpringApplication.run(RagRetrieverApplication.class, args);
