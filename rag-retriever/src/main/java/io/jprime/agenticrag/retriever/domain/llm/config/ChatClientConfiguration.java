@@ -1,4 +1,4 @@
-package io.jprime.agenticrag.retriever.domain.llm.client.config;
+package io.jprime.agenticrag.retriever.domain.llm.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

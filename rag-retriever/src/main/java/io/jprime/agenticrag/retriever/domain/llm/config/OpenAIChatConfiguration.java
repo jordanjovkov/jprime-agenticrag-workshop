@@ -1,4 +1,4 @@
-package io.jprime.agenticrag.retriever.domain.llm.client.config;
+package io.jprime.agenticrag.retriever.domain.llm.config;
 
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.openai.OpenAiChatModel;
